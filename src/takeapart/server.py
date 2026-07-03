@@ -23,11 +23,12 @@ TOOLS: list[Tool] = [
     Tool(
         name="detect_elements",
         description=(
-            "轻量级元素检测（纯传统CV，无需GPU）。通过 Canny 边缘检测 + 轮廓分析，"
-            "快速发现图片中所有独立元素的大致位置和边界框。"
-            "适用于设计稿、海报、UI截图、PPT等图片中分散元素的快速发现。"
-            "可通过 output_path 参数输出标注了所有检测框的可视化图片。"
-            "注意：这是无视觉能力AI的 fallback 工具，精度有限。"
+            "轻量级元素检测（纯传统CV，无需GPU）。"
+            "两遍扫描：Pass1 Canny+轮廓检测图标/形状，Pass2 形态学检测文字块。"
+            "自动分类元素类型：text(文字)、icon(图标)、banner(横幅)、element(其他)。"
+            "返回每个元素的位置(bbox)、面积、类型、宽高比。"
+            "文字块附带精确的位置和尺寸信息（适合与视觉AI的内容理解互补）。"
+            "可通过 output_path 输出标注可视化图。"
             "如需精确分割，请使用 segment_element。"
         ),
         inputSchema={
