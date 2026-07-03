@@ -63,6 +63,10 @@
 | 元素类型 | 视觉 AI | 语义理解更强 |
 | 文字内容 | 视觉 AI | CV 不读内容 |
 | 字体/颜色 | 视觉 AI | CV 识别能力有限 |
+| 对齐方式 | 视觉 AI | left/center/right |
+| 行间距 | 视觉 AI | 倍数，如 1.0/1.5/2.0 |
+| 段后间距 | 视觉 AI | 像素值 |
+| 字重(粗体) | 视觉 AI | bold/normal |
 
 ---
 
@@ -106,6 +110,10 @@ Phase 1 + Phase 2 合并后的完整元素属性：
   "content": "这是视觉AI读取的文字内容",
   "font_family": "宋体",
   "color": "#333333",
+  "bold": false,
+  "align": "left",
+  "line_spacing": 1.5,
+  "paragraph_spacing": 0,
   "description": "视觉AI的语义描述"
 }
 ```
