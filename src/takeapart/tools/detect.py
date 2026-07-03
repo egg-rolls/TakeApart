@@ -191,7 +191,7 @@ def _make_element(
     bbox: dict, area: float, img_area: float,
     contour_points: list, aspect: float, el_type: str,
 ) -> dict:
-    return {
+    elem = {
         "bbox": bbox,
         "type": el_type,
         "area_ratio": round(area / img_area, 4),
@@ -199,6 +199,10 @@ def _make_element(
         "contour_points": contour_points,
         "aspect_ratio": aspect,
     }
+    # For text elements, estimate font size from bounding box height
+    if el_type == "text":
+        elem["font_size_px"] = bbox["height"]
+    return elem
 
 
 def _save_visualization(
